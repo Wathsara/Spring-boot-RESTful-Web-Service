@@ -37,17 +37,11 @@ public class TopicService {
 	}
 	
 	public void updateTopic(Topic topic, int id) {
-		for (int i = 0; i < topics.size(); i++) {
-			Topic t = topics.get(i);
-			if(t.getId()==id) {
-				topics.set(i, topic);
-				return;
-			}
-		}		
+		tc.save(topic);	
 	}
 	
 	public void delete(int id) {
-		topics.removeIf(t -> t.getId() == id);
+		tc.deleteById(id);
 	}
 	
 }
